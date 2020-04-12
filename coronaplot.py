@@ -12,7 +12,7 @@ df = pd.read_json(url, orient='columns')
 
 
 
-def per_country_cases():
+def per_country_cases(log):
 
 	translator = Translator()
 	for country in df:
@@ -40,12 +40,16 @@ def per_country_cases():
 		c = np.array(confirmed)
 		d = np.array(deaths)
 		r = np.array(recover)
-		
 
 		pyplot.figure(figsize=(6,5),facecolor = 'black', dpi=100)
 		pyplot.plot(x,c,color="black", label="Confirmados",linewidth=2)
 		pyplot.plot(x,d,color="red", label="Mortes",linewidth=2)
 		pyplot.plot(x,r,color="green", label="Recuperados",linewidth=2)
+		if log == True: 
+			pyplot.yscale('log')
+			suffix = "_log"
+		else:
+			suffix = ""
 		for var in (c, d, r):
 			pyplot.annotate(var.max(), xy=(1, var.max()), xytext=(8, 0), xycoords=('axes fraction', 'data'), textcoords='offset points')
 
@@ -57,11 +61,12 @@ def per_country_cases():
 		pyplot.xlabel('Dias')
 		pyplot.ylabel('Pessoas')
 		pyplot.annotate('Fonte: JHU CSSE, desde '+dayzero, (0,0), (0,-25), fontsize=6, xycoords='axes fraction', textcoords='offset points', va='top')
-		pyplot.savefig(country+'.png', dpi=100)
+		pyplot.savefig(country+suffix+'.png', dpi=100)
 		pyplot.close()
 
 
-def overall_cases():
+
+def overall_cases(log):
 
 	translator = Translator()
 	# Superior limit of cases to plot
@@ -100,14 +105,19 @@ def overall_cases():
 	pyplot.legend(loc="upper left")
 	pyplot.xticks(rotation=45)
 	pyplot.grid(True)
-
-	
+	if log == True: 
+		pyplot.yscale('log')
+		suffix = "_log"
+	else:
+		suffix = ""
 	pyplot.title('Total de mortes COVID-19 acima de 1.500 ('+lastday+')')
 	pyplot.xlabel('Dias')
 	pyplot.ylabel('Pessoas')
 	pyplot.annotate('Fonte: JHU CSSE, desde '+dayzero, (0,0), (0,-25), fontsize=6, xycoords='axes fraction', textcoords='offset points', va='top')
-	pyplot.savefig('OverallDeaths.png', dpi=100)
+	pyplot.savefig('OverallDeaths'+suffix+'.png', dpi=100)
 	pyplot.close()
+
+
 
 
 	# Superior limit of cases to plot
@@ -146,20 +156,28 @@ def overall_cases():
 	pyplot.legend(loc="upper left")
 	pyplot.xticks(rotation=45)
 	pyplot.grid(True)
-
-	
+	if log == True: 
+		pyplot.yscale('log')
+		suffix = "_log"
+	else:
+		suffix = ""
 	pyplot.title('Total de confirmados COVID-19 acima de 25.000 ('+lastday+')')
 	pyplot.xlabel('Dias')
 	pyplot.ylabel('Pessoas')
 	pyplot.annotate('Fonte: JHU CSSE, desde '+dayzero, (0,0), (0,-25), fontsize=6, xycoords='axes fraction', textcoords='offset points', va='top')
-	pyplot.savefig('OverallConfirmed.png', dpi=100)
+
+	pyplot.savefig('OverallConfirmed'+suffix+'.png', dpi=100)
 	pyplot.close()
+
+   
+
 
 
 def main():
-	#per_country_cases()
-	overall_cases()        
-
+	#per_country_cases(True)
+	#overall_cases(True)        
+	per_country_cases(False)
+	overall_cases(False)       
 
 if __name__== "__main__":
    main()
