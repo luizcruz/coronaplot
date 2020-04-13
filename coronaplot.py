@@ -12,7 +12,8 @@ df = pd.read_json(url, orient='columns')
 
 
 
-def per_country_cases(log):
+
+def per_country_cases(log=False):
 
 	translator = Translator()
 	for country in df:
@@ -66,7 +67,7 @@ def per_country_cases(log):
 
 
 
-def overall_cases(log):
+def overall_cases(log=False):
 
 	translator = Translator()
 	# Superior limit of cases to plot
@@ -169,13 +170,13 @@ def overall_cases(log):
 	pyplot.savefig('OverallConfirmed'+suffix+'.png', dpi=100)
 	pyplot.close()
 
-   
+
 
 
 
 def main():
-	#per_country_cases(True)
-	#overall_cases(True)        
+	per_country_cases(True)
+	overall_cases(True)        
 	per_country_cases(False)
 	overall_cases(False)       
 
