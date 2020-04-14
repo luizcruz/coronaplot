@@ -122,7 +122,7 @@ def overall_cases(log=False):
 
 
 	# Superior limit of cases to plot
-	limit = 25000
+	limit = 30000
 	print ("Generating graph Overall Confirmed")
 
 	pyplot.figure(figsize=(8,6),facecolor = 'black', dpi=100)
@@ -162,7 +162,7 @@ def overall_cases(log=False):
 		suffix = "_log"
 	else:
 		suffix = ""
-	pyplot.title('Total de confirmados COVID-19 acima de 25.000 ('+lastday+')')
+	pyplot.title('Total de confirmados COVID-19 acima de 30.000 ('+lastday+')')
 	pyplot.xlabel('Dias')
 	pyplot.ylabel('Pessoas')
 	pyplot.annotate('Fonte: JHU CSSE, desde '+dayzero, (0,0), (0,-25), fontsize=6, xycoords='axes fraction', textcoords='offset points', va='top')
@@ -175,9 +175,9 @@ def overall_cases(log=False):
 
 
 def main():
-	per_country_cases(True)
+	#per_country_cases(True)
 	overall_cases(True)        
-	per_country_cases(False)
+	#per_country_cases(False)
 	overall_cases(False)       
 
 if __name__== "__main__":
