@@ -175,9 +175,9 @@ def overall_cases(log=False):
 
 
 def main():
-	#per_country_cases(True)
+	per_country_cases(True)
 	overall_cases(True)        
-	#per_country_cases(False)
+	per_country_cases(False)
 	overall_cases(False)       
 
 if __name__== "__main__":
