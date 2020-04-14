@@ -62,7 +62,7 @@ def per_country_cases(log=False):
 		pyplot.xlabel('Dias')
 		pyplot.ylabel('Pessoas')
 		pyplot.annotate('Fonte: JHU CSSE, desde '+dayzero, (0,0), (0,-25), fontsize=6, xycoords='axes fraction', textcoords='offset points', va='top')
-		pyplot.savefig(country+suffix+'.png', dpi=100)
+		pyplot.savefig('graphs/'+country+suffix+'.png', dpi=100)
 		pyplot.close()
 
 
@@ -115,7 +115,7 @@ def overall_cases(log=False):
 	pyplot.xlabel('Dias')
 	pyplot.ylabel('Pessoas')
 	pyplot.annotate('Fonte: JHU CSSE, desde '+dayzero, (0,0), (0,-25), fontsize=6, xycoords='axes fraction', textcoords='offset points', va='top')
-	pyplot.savefig('OverallDeaths'+suffix+'.png', dpi=100)
+	pyplot.savefig('graphs/OverallDeaths'+suffix+'.png', dpi=100)
 	pyplot.close()
 
 
@@ -167,7 +167,7 @@ def overall_cases(log=False):
 	pyplot.ylabel('Pessoas')
 	pyplot.annotate('Fonte: JHU CSSE, desde '+dayzero, (0,0), (0,-25), fontsize=6, xycoords='axes fraction', textcoords='offset points', va='top')
 
-	pyplot.savefig('OverallConfirmed'+suffix+'.png', dpi=100)
+	pyplot.savefig('graphs/OverallConfirmed'+suffix+'.png', dpi=100)
 	pyplot.close()
 
 
