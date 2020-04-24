@@ -71,7 +71,7 @@ def overall_cases(log=False):
 
 	translator = Translator()
 	# Superior limit of cases to plot
-	limit = 3500
+	limit = 5000
 	print ("Generating graph Overall Deaths")
 
 	pyplot.figure(figsize=(8,6),facecolor = 'black', dpi=100)
@@ -111,7 +111,7 @@ def overall_cases(log=False):
 		suffix = "_log"
 	else:
 		suffix = ""
-	pyplot.title('Total de mortes COVID-19 acima de 3.500 ('+lastday+')')
+	pyplot.title('Total de mortes COVID-19 acima de 5000 ('+lastday+')')
 	pyplot.xlabel('Dias')
 	pyplot.ylabel('Pessoas')
 	pyplot.annotate('Fonte: JHU CSSE, desde '+dayzero, (0,0), (0,-25), fontsize=6, xycoords='axes fraction', textcoords='offset points', va='top')
@@ -122,7 +122,7 @@ def overall_cases(log=False):
 
 
 	# Superior limit of cases to plot
-	limit = 50000
+	limit = 80000
 	print ("Generating graph Overall Confirmed")
 
 	pyplot.figure(figsize=(8,6),facecolor = 'black', dpi=100)
@@ -162,7 +162,7 @@ def overall_cases(log=False):
 		suffix = "_log"
 	else:
 		suffix = ""
-	pyplot.title('Total de confirmados COVID-19 acima de 50.000 ('+lastday+')')
+	pyplot.title('Total de confirmados COVID-19 acima de 80.000 ('+lastday+')')
 	pyplot.xlabel('Dias')
 	pyplot.ylabel('Pessoas')
 	pyplot.annotate('Fonte: JHU CSSE, desde '+dayzero, (0,0), (0,-25), fontsize=6, xycoords='axes fraction', textcoords='offset points', va='top')
